@@ -5,7 +5,7 @@ import java.io.PrintWriter;
 
 //Import GUI
 
-public class gym_membership{
+public class gymMembership{
     public static void basicPlan(){
         System.out.println("This is your basic plan. ");
         System.out.println("""
