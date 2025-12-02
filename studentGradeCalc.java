@@ -2,7 +2,19 @@ import java.util.Scanner;
 
 public class studentGradeCalc {
 
-    public static void inputStudentNames() {
+    static class StudentData {
+        String [] names;
+        double [] scores;
+        int count;
+
+        StudentData(String [] names, double[] scores, int count) {
+            this.names = names;
+            this.scores = scores;
+            this.count = count;
+        }
+    }
+
+    public static StudentData inputStudentNames() {
         int count = 0;
         Scanner scanner = new Scanner(System.in);
         String[] studentNames = new String[100];
@@ -28,12 +40,21 @@ public class studentGradeCalc {
                 count++;
             }
         }
+        return new StudentData(studentNames, studentScores, count);
     }
 
+    public static void maxGrade(double[] studentScores) {
+        double maxScore = studentScores[0];
+        for (double score : studentScores) {
+            if (score > maxScore) {
+                maxScore = score;
+            }
+        }
+        System.out.println("Max Score: " + maxScore);
+    }
 
     public static void main(String[] args) {
-        System.out.println("Hello, World!");
-        inputStudentNames();
-
+        StudentData studentData = inputStudentNames();
+        maxGrade(studentData.scores);
     }
 }
