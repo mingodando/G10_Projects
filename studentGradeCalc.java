@@ -53,8 +53,24 @@ public class studentGradeCalc {
         System.out.println("Max Score: " + maxScore);
     }
 
+    public static void avgGrade(double[] studentScores, int count) {
+        double totalScore = 0;
+        for (int i = 0; i < count; i++) {
+            totalScore += studentScores[i];
+        }
+        
+        if (count > 0) {
+            double avgScore = totalScore / count;
+            System.out.println("Student Count: " + count);
+            System.out.println("Average Score: " + avgScore);
+        } else {
+            System.out.println("No scores to calculate average.");
+        }
+    }
+
     public static void main(String[] args) {
         StudentData studentData = inputStudentNames();
         maxGrade(studentData.scores);
+        avgGrade(studentData.scores, studentData.count);
     }
 }
