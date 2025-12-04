@@ -43,22 +43,34 @@ public class studentGradeCalc {
         return new StudentData(studentNames, studentScores, count);
     }
 
-    public static void maxGrade(double[] studentScores) {
+    public static void maxGrade(double[] studentScores, int count) {
+        if (count == 0) return;
         double maxScore = studentScores[0];
-        for (double score : studentScores) {
-            if (score > maxScore) {
-                maxScore = score;
+        for (int i = 0; i < count; i++) {
+            if (studentScores[i] > maxScore) {
+                maxScore = studentScores[i];
             }
         }
         System.out.println("Max Score: " + maxScore);
     }
 
+    public static void minGrade(double[] studentScores, int count) {
+        if (count == 0) return;
+        double minScore = studentScores[0];
+        for (int i = 0; i < count; i++) {
+            if (studentScores[i] < minScore) {
+                minScore = studentScores[i];    
+            }
+        }
+        System.out.println("Min Score: " + minScore);
+    }
+
     public static void avgGrade(double[] studentScores, int count) {
         double totalScore = 0;
-        for (int i = 0; i < count; i++) {
-            totalScore += studentScores[i];
+        for (double score : studentScores) {
+            totalScore += score;
         }
-        
+
         if (count > 0) {
             double avgScore = totalScore / count;
             System.out.println("Student Count: " + count);
@@ -70,7 +82,9 @@ public class studentGradeCalc {
 
     public static void main(String[] args) {
         StudentData studentData = inputStudentNames();
-        maxGrade(studentData.scores);
+        maxGrade(studentData.scores, studentData.count);
+        minGrade(studentData.scores, studentData.count);
         avgGrade(studentData.scores, studentData.count);
+
     }
 }
