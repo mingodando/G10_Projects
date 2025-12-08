@@ -52,8 +52,8 @@ public class BankingSystem {
         try (Scanner scanner = new Scanner(new File(filename))) {
             while (scanner.hasNextLine()) {
                 content.append(scanner.nextLine()).append("\n");
-                System.out.println(content);
             }
+            System.out.println(content);
         } catch (IOException e) {
             System.out.println("Error loading account data: " + e.getMessage());
         }
@@ -69,7 +69,6 @@ public class BankingSystem {
         String filename = name + ".txt";
         String pin = pinMain(filename);
         saveData(name, balance, pin);
-        
     }
 
     public static void verifyPin() {
@@ -121,8 +120,6 @@ public class BankingSystem {
                 }
             }
         }
-
-        System.out.println("Too many incorrect attempts. Access denied.");
     }
 
     public static void main(String[] args) {
@@ -135,7 +132,6 @@ public class BankingSystem {
         if (command.equals("new")) {
             newAccount();
         } else if (command.equals("load")) {
-            System.out.print("Enter account name: ");
             verifyPin();
 
         }
