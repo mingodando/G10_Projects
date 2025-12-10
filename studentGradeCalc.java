@@ -34,6 +34,11 @@ public class studentGradeCalc {
                 double score = scanner.nextDouble();
                 scanner.nextLine();
 
+                if (score < 0 || score > 100) {
+                    System.out.println("Invalid score. Please enter a score between 0 and 100.");
+                    continue;
+                } 
+
                 studentNames[count] = input;
                 studentScores[count] = score;
 
