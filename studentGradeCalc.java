@@ -59,7 +59,7 @@ public class studentGradeCalc {
         double minScore = studentScores[0];
         for (int i = 0; i < count; i++) {
             if (studentScores[i] < minScore) {
-                minScore = studentScores[i];    
+                minScore = studentScores[i];
             }
         }
         System.out.println("Min Score: " + minScore);
@@ -80,11 +80,35 @@ public class studentGradeCalc {
         }
     }
 
+    public static char getLetterGrade(double score) {
+        if (score >= 90) return 'A';
+        else if (score >= 80) return 'B';
+        else if (score >= 70) return 'C';
+        else if (score >= 60) return 'D';
+        else return 'F';
+    }
+
+    public static void printReport(StudentData data) {
+        System.out.println("\n--- Class Report ---");
+        System.out.printf("%-15s %-10s %-10s%n", "Name", "Score", "Grade");
+        System.out.println("-------------------------------------");
+        for (int i = 0; i < data.count; i++) {
+            System.out.printf("%-15s %-10.2f %-10c%n",
+                    data.names[i],
+                    data.scores[i],
+                    getLetterGrade(data.scores[i]));
+        }
+        System.out.println("-------------------------------------");
+    }
+
     public static void main(String[] args) {
+        //Collect the student data
         StudentData studentData = inputStudentNames();
+        // Print out the report
+        printReport(studentData);
+        // Print out max, min and average grade
         maxGrade(studentData.scores, studentData.count);
         minGrade(studentData.scores, studentData.count);
         avgGrade(studentData.scores, studentData.count);
-
     }
 }
