@@ -3,45 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <title>Ming Personal Portfolio</title>
+
+    <style>
+        .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 30px;
+        }
+        
+        /* Right Column (Projects area) */
+        .row-right {
+            flex: 1;
+            min-width: 0;
+            text-align: left;
+        }
+        
+        /* Left Column (Personal Info) */
+        .personal-info {
+            width: 300px;
+            text-align: left;
+        }
+        
+    </style>
 </head>
 <body>
 <div>
     <h1 style="text-align: center;">
-        <span style="color: #3498db; font-weight: bold;">Ming Personal Portfolio</span>
+        <span style="color: #3498db; font-weight: bold;">Ming's Personal Portfolio</span>
     </h1>
 
     <h2 style="text-align: center;">
-        <span style="color: #2ecc71;">Welcome to my personal portfolio!
-            Here, you can find information about my projects, skills, and experiences.</span>
+        <span>Welcome to Ming's personal portfolio!
+            Beginner developer building innovative projects and experiences.</span>
     </h2>
+        
+    <div class="row">
+        <div class="personal-info">
+            <h3>
+                <span>About me: </span>
+            </h3>
+            <p style="margin: 0;">
+                    Name: Ming <br>
+                    Email: <a href="mailto:thebestballer182@gmail.com">thebestballer182@gmail.com</a> <br>
+                    Languages: English, Chinese, Thai <br>
+                    Gender: Male <br>
+                    School: Concordian International School <br>
+                    Age: 16 <br>
+            </p>
+            
+            <h3>
+                <span>
+                    Skills:
+                </span>
+            </h3>
+            
+            <p>
+                Programming Languages: Python, Java, HTML <br>
+                Tools: GitHub, PyCharm, Intellij Idea
+            </p>
+            
+            <h3>
+                How I fell in love with programming:
+            </h3>
+            <p>
+                I first learnt about programming was Grade 4, Scratch. I believe all of us have heard of that. I used to 
+                be the student in digital design class that wasn't interested in programming. But came G9, a teacher 
+                that I will not mention names encouraged me to try programming. I found programming quite fun, using 
+                Tkinter to create a simple timer app. Since I'm in IB, I have to do a personal project in G10, I decided
+                to do a study application using customTkinter.
+            </p>
+            
+            <h3>
+                Future Goals:
+            </h3>
+            <p>
+                I am currently working on my study app using Customtkinter. I am now learning Java hoping to change my 
+                study app into Java as it would be prettier.
+            </p>
+        </div>
+        
+        <div class="row-right">
 
-    <h3 style="text-align: left;">
-        <span style="color: #f1c40f;">This section will showcase my skills and experiences:</span>
-    </h3>
+            <!-- View Projects -->
+            <h3><strong>
+                View my projects:
+            </strong></h3>
+            <p>
+                Links to my GitHub: <a href="https://github.com/mingodando">https://github.com/mingodando</a><br>
+                Links to my Instagram: <a href="https://www.instagram.com/unlistedcsnerd/">
+                https://www.instagram.com/unlistedcsnerd/</a>
+            </p>
 
-    <h3 style="text-align: left;">
-        <span style="color: #9b59b6;">This section will showcase my projects and accomplishments:</span>
-    </h3>
+            <!-- Current Projects -->
 
-    <h4>
-        Links to my GitHub: <a href="https://github.com/mingodando">https://github.com/mingodando</a><br>
-        Links to my Instagram: <a href="https://www.instagram.com/unlistedcsnerd/">https://www.instagram.com/unlistedcsnerd/</a>
-    </h4>
+            <h3>
+                Current Projects:
+            </h3>
+            <ul>
+                <li>Study App (Python)</li>
+                <li>Creating small Java projects</li>
+            </ul>
 
-    <h3 style="text-align: right;">
-        <span>Personal Information:</span>
-    </h3>
-
-    <div style="text-align: right;">
-        <div style="display: inline-block; text-align: left;">
-            <h5 style="margin: 0;">
-                Name: Ming <br>
-                Gender: Male <br>
-                School: Concordian International School <br>
-            </h5>
         </div>
     </div>
+
 </div>
 </body>
 </html>
-
