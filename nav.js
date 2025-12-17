@@ -1,39 +1,62 @@
-const currentPage = window.location.pathname.split("/").pop() || "main.html";
+// const          -> declares a variable that cannot be reassigned (you can't do currentPage = ... later)
+// fileName       -> variable name (you chose this name)
+// =              -> assignment operator (stores the value on the right into the variable on the left)
+// window         -> browser-provided object representing the current tab/window
+// .location      -> property containing URL info (href, pathname, etc.)
+// .pathname      -> string of the URL path only (example: "/Website%20Page%20HTML/about.html")
+// .split("/")    -> string method: splits a string into an array using "/" as the separator
+// .pop()         -> array method: removes and returns the last array item (here: the filename)
+const fileName = window.location.pathname.split("/").pop();
 
-// Const = "Create a variable that can't be reassigned later"
-// Current Page = The variable name
+// currentPage    -> variable name for the page we treat as "current"
+// fileName && ...-> logical AND: returns the second part only if the first part is "truthy"
+// fileName.length-> number of characters in the string (0 means empty string "")
+// > 0            -> comparison operator
+// ? :            -> ternary operator (inline if/else):
+//                  condition ? valueIfTrue : valueIfFalse
+// "index.html"   -> string literal (your chosen default home page filename)
+const currentPage = fileName && fileName.length > 0 ? fileName : "index.html";
 
-//WINDOW
-/*
-window = built-in object
-window.location = info about the current URL
-window.location.pathname = the current URL path
-.split("/") = split the string into an array
-.pop() = get the last item in the array
-|| = if the last item is empty, return the string "main.html"
-*/
-
+// document       -> browser-provided object representing the HTML document (the page)
+// .querySelectorAll(...) -> finds ALL matching elements using a CSS selector string
+// ".nav a"       -> CSS selector meaning: "any <a> inside an element with class='nav'"
+// navLinks       -> variable holding the results (a NodeList: list-like collection)
 const navLinks = document.querySelectorAll(".nav a");
 
-/*
-document = built-in object, represents HTML page
-querySelectorAll = Finds elements using a CSS selector
-.nav a = Selects all links inside the .nav element
-*/
-
+// .forEach(...)  -> runs a function once per item in a list
+// (link) => { }  -> arrow function:
+//                  link is the parameter name (each time, it’s one <a> element)
+//                  { } is the function body block
 navLinks.forEach((link) => {
-// forEach = loop through each item in the array
-// link = short way to write a function. "For each nav link, call this function, and name the current item link.
+  // link          -> the current <a> element from the loop
+  // .classList     -> a special object that manages the element's classes
+  // .remove(...)   -> removes a class name if present (does nothing if not present)
+  // "active"       -> class name string literal
+  link.classList.remove("active");
 
-  const linkPage = link.getAttribute("href");
-  // link = the actual <a> link
-  // getAttribute("href") = read what you typed in HTML, example: "main.html"
-  // linkPage = filename that the link points to
+  // href           -> variable name
+  // link.getAttribute("href") -> reads the literal HTML attribute value from the element
+  // "href"         -> attribute name string literal
+  const href = link.getAttribute("href");
 
-  if (linkPage === currentPage) {
-  // If statement to check if the file name is the same as the current page
+  // isHomeAlias    -> variable name ("is this link the home link?")
+  // ( ... || ... ) -> OR operator: true if either side is true
+  // ===            -> strict equality (must match value AND type)
+  // &&             -> AND operator: true only if both sides are true
+  // This expression becomes true only when:
+  // - currentPage is "index.html" OR currentPage is "" (some setups)
+  // - and this link’s href is exactly "index.html"
+  //
+  // NOTE: In your HTML, your Home link is "index.html", so this keeps it consistent.
+  const isHomeAlias =
+    (currentPage === "index.html" || currentPage === "") && href === "index.html";
+
+  // if (...) { ... } -> conditional statement:
+  // if condition is true, run the block
+  // href === currentPage -> checks if this link points to the current filename
+  // || isHomeAlias       -> OR: also allow the home alias match
+  if (href === currentPage || isHomeAlias) {
+    // .add(...) adds a class name to the element’s class list
     link.classList.add("active");
-    // Add an active class to the link, this way HTML changes the browser to have the class 'active', then the CSS
-    //rule can run
   }
 });
