@@ -1,0 +1,27 @@
+.header {
+    text-align: left;
+    background-color: lightblue;
+    text-indent: 45px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+/* Make the container a two-column flex layout */
+.drive-folder {
+    display: flex;
+    align-items: flex-start;    /* align tops */
+    gap: 1.5rem;                /* space between iframe and text */
+    margin: 2rem auto;
+    /* remove float/max-width limits so it can lay out horizontally */
+}
+
+.drive-folder iframe {
+    flex: 1 1 auto;
+    width:100%;
+    border: 0;
+}
+
+.drive-text {
+    text-align: center;
+    max-width: 420px;
+}
