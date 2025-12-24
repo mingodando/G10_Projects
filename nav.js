@@ -17,11 +17,14 @@ const fileName = window.location.pathname.split("/").pop();
 // "index.html"   -> string literal (your chosen default home page filename)
 const currentPage = fileName && fileName.length > 0 ? fileName : "index.html";
 
+// NEW: Print the detected page name to the console
+console.log("Detected curent page: ", currentPage);
+
 // document       -> browser-provided object representing the HTML document (the page)
 // .querySelectorAll(...) -> finds ALL matching elements using a CSS selector string
 // ".nav a"       -> CSS selector meaning: "any <a> inside an element with class='nav'"
 // navLinks       -> variable holding the results (a NodeList: list-like collection)
-const navLinks = document.querySelectorAll(".nav a");
+const navLinks = document.querySelectorAll(".nav-links a ");
 
 // .forEach(...)  -> runs a function once per item in a list
 // (link) => { }  -> arrow function:
@@ -57,6 +60,7 @@ navLinks.forEach((link) => {
   // || isHomeAlias       -> OR: also allow the home alias match
   if (href === currentPage || isHomeAlias) {
     // .add(...) adds a class name to the element’s class list
+    console.log("Matching link found! Activating:", href)
     link.classList.add("active");
   }
 });
