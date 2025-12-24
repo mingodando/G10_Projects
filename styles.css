@@ -27,15 +27,34 @@ padding-top: 16px; /* Adds a top padding of 16 pixels.*/
 padding-bottom: 16px; /* Adds a bottom padding of 16 pixels.*/
 }
 
+.site-footer {
+nargin-top: 40px;
+padding: 24px 0;
+border-top: 1px solid #e6e6e6;
+color: #666;
+font-size: 14px;
+text-align: center;
+}
+
 /* Targets a <nav> tag inside the header. */
 .nav {
 display: flex; /* Turn the <nav> into a flex container. */
 /* Properties of the flex container */
-gap: 12px; /* Spacing between the links. */
-flex-wrap: wrap; /* If the screen is narrow, it will wrap the links onto a new line. (Think of it as GGL Sheets wrap) */
+justify-content: space-between;
 align-items: center; /* Aligns the links vertically. */
 padding: 12px 0; /* Adds padding to the top and bottom. Left and right is 0. */
-border-bottom: 1px solid #e6e6e6; /* Adds a thin black line below the nav. */
+}
+
+.brand {
+font-weight: bold;
+font-size: 16px;
+text-decoration: none;
+color: #111;}
+
+.nav-links {
+display: flex;
+gap: 12px;
+margin-left: auto;
 }
 
 /* Targets all <a> tags inside the nav. */
